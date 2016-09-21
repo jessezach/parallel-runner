@@ -2,7 +2,7 @@ from tasks import execute_test
 import sys, string, os, time
 import subprocess
 from celery.task.sets import TaskSet
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as E
 
 
 command = sys.argv[1:]
