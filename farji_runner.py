@@ -46,7 +46,8 @@ def run_tests(command, test_folder, options, results_folder):
 
 
 def initiate_dry_run(command):
-	subprocess.call("pybot --dryrun --output=suites.xml --report=NONE --log=NONE %s" % command, shell=True)
+	FNULL = open(os.devnull, 'w')
+	subprocess.call("pybot --dryrun --output=suites.xml --report=NONE --log=NONE %s" % command, stdout=FNULL, stderr=subprocess.STDOUT, shell=True)
 	tree = ET.parse('suites.xml')
 	root = tree.getroot()
 	suites = []
