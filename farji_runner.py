@@ -23,11 +23,8 @@ options = ' '.join(options)
 
 def run_tests(command, test_folder, options, results_folder):
 	if command:
-		print '#########################################################'
-		print 'Triggering dry run'
-		print '#########################################################'
 		suites = initiate_dry_run(command)
-		job = TaskSet(tasks=[execute_test.subtask(kwargs={'path': suite, 'test_path': test_folder, 'command': options, 'results_folder': results_folder}) for suite in suites])
+		job = TaskSet(tasks=[execute_test.subtask(kwargs={'path': suite, 'test_path': test_folder, 'options': options, 'results_folder': results_folder}) for suite in suites])
 		print '#########################################################'
 		print 'Executing Tests'
 		print '#########################################################'
