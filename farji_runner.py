@@ -16,6 +16,8 @@ if '-d' in options:
     results_folder = options.pop(ind)
     command.pop(ind1)
     command.pop(ind1)
+else:
+    results_folder = 'results'
 
 command = ' '.join(command)
 options = ' '.join(options)
