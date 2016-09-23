@@ -24,7 +24,11 @@ def execute_test(**kwargs):
     FNULL = open(os.devnull, 'w')
     subprocess.call('pybot --outputdir=%s --output=result.xml --report=NONE --log=NONE %s %s' % (output_path, command, path), stdout=FNULL, stderr=subprocess.STDOUT, shell=True)
     tree = ET.parse('%s/result.xml' % output_path)
-    count_fail = tree.findall('//total/stat[1]')[0].get('fail')
+    count_fail = tree.findall('.//total/stat[1]')[0].get('fail')
+
     if int(count_fail) > 0:
         status = 'FAIL'
+    else:
+        status = 'PASS'
+
     logger.info('Ended Test %s: %s' %(folder, status))
