@@ -39,7 +39,6 @@ def run_tests(command, test_folder, options, results_folder):
         print 'Finished tests, generating report'
         print '#########################################################'
         merge_results(suites, test_folder, results_folder)      
-
     else:
         raise ValueError('No test folder provided')
 
