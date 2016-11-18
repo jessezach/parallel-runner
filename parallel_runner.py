@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 
 
 command = sys.argv[1:]
-test_folder = sys.argv.pop()
+test_folder = sys.argv.pop(
 options = sys.argv[1:]
 
 if '-d' in options:
